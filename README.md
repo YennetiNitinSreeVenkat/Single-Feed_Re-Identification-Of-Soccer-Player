@@ -4,7 +4,7 @@ This project demonstrates **player re-identification** in a single video feed us
 
 ---
 
-## 🎯 Objective
+## Objective
 
 > Identify each player and ensure that players who go out of frame and reappear are assigned the **same identity** as before.
 
@@ -22,9 +22,9 @@ This project demonstrates **player re-identification** in a single video feed us
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
-### 🧩 Dependencies
+### Dependencies
 
 Install the following packages (compatible with Google Colab):
 
