@@ -1,107 +1,104 @@
-# Single-Feed_Re-Identification-Of-Soccer-Player
+# Single-Feed Re-Identification of Soccer Players
 
-This project demonstrates **player re-identification** in a single video feed using a fine-tuned YOLOv11 object detection model. The goal is to ensure that each soccer player maintains a **consistent ID**, even after exiting and re-entering the frame.
-
----
+This project demonstrates player re-identification in a single video feed using a fine-tuned YOLOv11 object detection model. The goal is to assign consistent IDs to each soccer player, even if they temporarily exit and re-enter the frame. This enables robust tracking for sports analytics applications.
 
 ## Objective
 
-> Identify each player and ensure that players who go out of frame and reappear are assigned the **same identity** as before.
-
----
+Detect and consistently track soccer players in a video, ensuring that players who leave and return to the frame are assigned the same identity.
 
 ## Repository Contents
 
 | File / Folder           | Description |
 |-------------------------|-------------|
 | `Football_REID.ipynb`   | Main Colab-compatible notebook for detection, tracking, and re-identification |
-| `15sec_input_720p.mp4`  | Input video used for processing |
-| `results.mp4`           | Output video with detected player IDs visualized |
-| `results.csv`           | CSV log of detected player IDs and frame-wise positions |
-| `README.md`             | Documentation and usage instructions |
-| `football_report.pdf`   | Report |
-
----
+| `15sec_input_720p.mp4`  | Sample input video |
+| `results.mp4`           | Output video with visualized player IDs |
+| `results.csv`           | CSV log of player IDs and frame-wise positions |
+| `README.md`             | Project documentation |
+| `football_report.pdf`   | Project summary report |
 
 ## Setup Instructions
 
 ### Dependencies
 
-Install the following packages (compatible with Google Colab):
+Install the required packages using pip:
 
-```bash
+```
 pip install ultralytics opencv-python scipy numpy
-
-Optional for advanced tracking:
-
+# Optional for advanced tracking
 pip install deep_sort_realtime
+```
 
 How to Run
 
-    Open Football_REID.ipynb in Google Colab
+    Open Football_REID.ipynb in Google Colab.
 
-    Upload Files:
+    Upload the following files:
 
         15sec_input_720p.mp4
 
-        Your YOLOv11 model (.pt)
+        Your YOLOv11 model (.pt file)
 
-    Install dependencies using the above pip commands
+    Install dependencies using the commands above.
 
-    Update paths inside the notebook if needed (especially if using Google Drive)
+    Update file paths in the notebook if needed.
 
     Run all cells to:
 
         Load the model
 
-        Process each frame
+        Process the video
 
-        Detect players and assign IDs
+        Detect and track players
 
-        Reassign IDs for re-entering players
+        Reassign IDs for players re-entering the frame
 
-        Save the output video
-
-    Download results.mp4 and results.csv for evaluation or submission
+        Save the output video and CSV log
 
 Methodology Summary
 
-    Detection: YOLOv11 detects players in each frame (ignores ball and referees)
+    Detection: YOLOv11 detects only players in each frame, ignoring other entities such as referees or the ball.
 
-    Tracking + Re-Identification:
+    Tracking and Re-Identification:
 
-        Frame-wise feature vectors are extracted (e.g., simple embeddings)
+        Extract feature vectors using color histograms or similar embeddings
 
-        Cosine similarity is used to match players across frames
+        Use cosine similarity to match current detections with existing player identities
 
-        Previously assigned IDs are reused if similarity exceeds a threshold
+        Reassign previously used IDs if similarity exceeds a threshold
 
 Output Format
 
-    results.mp4: Video with bounding boxes and consistent player IDs
+    results.mp4: Output video with bounding boxes and consistent player IDs
 
-    results.csv: Log file with the format:
+    results.csv: Frame-wise log in the format:
+```
+frame_id,player_id,x1,y1,x2,y2
+12,3,245,108,287,192
+13,3,248,111,290,195
+...
+```
+Notes and Future Work
 
-    frame_id,player_id,x1,y1,x2,y2
-    12,3,245,108,287,192
-    13,3,248,111,290,195
-    ...
+    Current implementation is basic and works well on short clips
 
-Notes
+    Planned improvements:
 
-    The current implementation is basic and can be extended with:
+        Use DeepSORT or ByteTrack for better tracking
 
-        DeepSORT or ByteTrack for stronger tracking
+        Integrate CNN-based embeddings like ResNet or OSNet
 
-        CNN-based visual embeddings (e.g., ResNet)
+        Add temporal smoothing (e.g., Kalman Filter)
 
-        Temporal smoothing for ID assignment
+        Enable live video processing
+
+        Build an interactive analytics dashboard
+
+        Generate heatmaps and movement trajectories
 
 Contact
 
 Yenneti Nitin Sree Venkat
-[nithinsreevenkat1009@gmail.com]
+Email: nithinsreevenkat1009@gmail.com
 
-
----
-
+        
