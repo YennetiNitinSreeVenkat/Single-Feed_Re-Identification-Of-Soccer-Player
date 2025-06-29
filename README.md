@@ -19,6 +19,7 @@ This project demonstrates **player re-identification** in a single video feed us
 | `results.mp4`           | Output video with detected player IDs visualized |
 | `results.csv`           | CSV log of detected player IDs and frame-wise positions |
 | `README.md`             | Documentation and usage instructions |
+| `football_report.pdf`   | Report |
 
 ---
 
