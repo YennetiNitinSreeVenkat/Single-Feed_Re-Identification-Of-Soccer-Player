@@ -60,11 +60,11 @@ Detection: YOLOv11 detects only players in each frame, ignoring other entities s
     
 Tracking and Re-Identification:
     
-Extract feature vectors using color histograms or similar embeddings
+  Extract feature vectors using color histograms or similar embeddings
     
-Use cosine similarity to match current detections with existing player identities
+  Use cosine similarity to match current detections with existing player identities
     
-Reassign previously used IDs if similarity exceeds a threshold
+  Reassign previously used IDs if similarity exceeds a threshold
 
 ## Output Format
 
@@ -79,25 +79,26 @@ frame_id,player_id,x1,y1,x2,y2
 ```
 ## Notes and Future Work
 
-Current implementation is basic and works well on short clips
+ Current implementation is basic and works well on short clips
 
 Planned improvements:
 
-Use DeepSORT or ByteTrack for better tracking
+  Use DeepSORT or ByteTrack for better tracking
 
-Integrate CNN-based embeddings like ResNet or OSNet
+  Integrate CNN-based embeddings like ResNet or OSNet
 
-Add temporal smoothing (e.g., Kalman Filter)
+  Add temporal smoothing (e.g., Kalman Filter)
 
-Enable live video processing
+  Enable live video processing
 
-Build an interactive analytics dashboard
+  Build an interactive analytics dashboard
 
-Generate heatmaps and movement trajectories
+  Generate heatmaps and movement trajectories
 
 Contact
 
 Yenneti Nitin Sree Venkat
+
 Email: nithinsreevenkat1009@gmail.com
 
         
