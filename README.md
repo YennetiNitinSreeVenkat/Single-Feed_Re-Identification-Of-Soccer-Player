@@ -55,46 +55,45 @@ How to Run
 
         Save the output video and CSV log
 
-Methodology Summary
+## Methodology Summary
+Detection: YOLOv11 detects only players in each frame, ignoring other entities such as referees or the ball.
+    
+Tracking and Re-Identification:
+    
+Extract feature vectors using color histograms or similar embeddings
+    
+Use cosine similarity to match current detections with existing player identities
+    
+Reassign previously used IDs if similarity exceeds a threshold
 
-    Detection: YOLOv11 detects only players in each frame, ignoring other entities such as referees or the ball.
+## Output Format
 
-    Tracking and Re-Identification:
+results.mp4: Output video with bounding boxes and consistent player IDs
 
-        Extract feature vectors using color histograms or similar embeddings
-
-        Use cosine similarity to match current detections with existing player identities
-
-        Reassign previously used IDs if similarity exceeds a threshold
-
-Output Format
-
-    results.mp4: Output video with bounding boxes and consistent player IDs
-
-    results.csv: Frame-wise log in the format:
+results.csv: Frame-wise log in the format:
 ```
 frame_id,player_id,x1,y1,x2,y2
 12,3,245,108,287,192
 13,3,248,111,290,195
 ...
 ```
-Notes and Future Work
+## Notes and Future Work
 
-    Current implementation is basic and works well on short clips
+Current implementation is basic and works well on short clips
 
-    Planned improvements:
+Planned improvements:
 
-        Use DeepSORT or ByteTrack for better tracking
+Use DeepSORT or ByteTrack for better tracking
 
-        Integrate CNN-based embeddings like ResNet or OSNet
+Integrate CNN-based embeddings like ResNet or OSNet
 
-        Add temporal smoothing (e.g., Kalman Filter)
+Add temporal smoothing (e.g., Kalman Filter)
 
-        Enable live video processing
+Enable live video processing
 
-        Build an interactive analytics dashboard
+Build an interactive analytics dashboard
 
-        Generate heatmaps and movement trajectories
+Generate heatmaps and movement trajectories
 
 Contact
 
